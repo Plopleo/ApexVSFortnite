@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>{% block title %}Apex VS Fortnite{% endblock %}</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="Compare Apex legends and Fortnite viewers based on top 20 streams" />
+		<meta name="keywords" content="apex,apex legends,fortnite,epic games,battle royale,twitch,stream" />
+        {% block stylesheets %}
+			<link href="{{ asset('assets/css/main.css') }}" rel="stylesheet" />
+			<link href="{{ asset('assets/css/progress-bar.css') }}" rel="stylesheet" />
+        {% endblock %}
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section class="intro">
+						<header>
+							<h1>Apex VS Fortnite</h1>
+                            <input type="radio" name="switch-color" id="red" checked>
+                            <input type="radio" name="switch-color" id="cyan">
+                            <input type="radio" name="switch-color" id="lime">
+                            <div class="chart">
+                                <div class="bar bar-{{ apexPercent }} white">
+                                    <div class="face top">
+                                        <div class="growing-bar"></div>
+                                    </div>
+                                    <div class="face side-0">
+                                        <div class="growing-bar"></div>
+                                    </div>
+                                    <div class="face floor">
+                                        <div class="growing-bar"></div>
+                                    </div>
+                                    <div class="face side-a"></div>
+                                    <div class="face side-b"></div>
+                                    <div class="face side-1">
+                                        <div class="growing-bar"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3>Winner : {{ winner.name }}</h3>
+                            <ul class="games-stats">
+                                <li>{{ apex.name }} : <span class="apex percent">{{ apexPercent }}%</span></li>
+                                <li><span class="apex">{{ nbApexViewers }}</span> viewers</li>
+                                <li>{{ fortnite.name }} : <span class="fortnite percent">{{ 100 - apexPercent }}%</span></li>
+                                <li><span class="fortnite">{{ nbFortniteViewers }}</span> viewers</li>
+                            </ul>
+                            <p class="infos">Stats from <span class="apex">20 first twitch streams</span> on each game.</p>
+						</header>
+						<div class="content">
+							<span class="image fill" data-position="center"><img src="{% if imgGameWinner is not null %}{{ imgGameWinner }}{% else %}{{ asset('images/test.jpg') }}{% endif %}" alt="" /></span>
+						</div>
+					</section>
+
+				<!-- Section -->
+					<section>
+						<header>
+							<h2>Streams</h2>
+						</header>
+						<div class="content">
+							<!-- Section -->
+                            <section>
+                                <div class="content">
+                                    <div class="gallery">
+                                        <a href="https://www.twitch.tv/directory/game/Apex%20Legends" target="_blank"><img src="{{ imgApex }}" alt="apex legends cover" /></a>
+                                    </div>
+                                </div>
+                            </section>
+							<section>
+								<div class="content">
+									<ul class="feature-icons">
+                                        {% for stream in apexStreams %}
+											<li class="icon fa-laptop"><a href="https://www.twitch.tv/{{ stream.user_name }}" target="_blank">{{ stream.user_name }}</a></li>
+                                        {% endfor %}
+									</ul>
+								</div>
+							</section>
+							<section>
+								<div class="content">
+									<div class="gallery">
+										<a href="https://www.twitch.tv/directory/game/Fortnite" target="_blank"><img src="{{ imgFornite }}" alt="fortnite cover" /></a>
+									</div>
+								</div>
+							</section>
+							<section>
+								<div class="content">
+									<ul class="feature-icons">
+                                        {% for stream in fortniteStreams %}
+											<li class="icon fa-laptop"><a href="https://www.twitch.tv/{{ stream.user_name }}" target="_blank">{{ stream.user_name }}</a></li>
+                                        {% endfor %}
+									</ul>
+								</div>
+							</section>
+						</div>
+					</section>
+
+				<!-- Section -->
+					<section>
+						<footer>
+							<ul class="items">
+								<li>
+									<ul class="icons social">
+										<li><a href="https://twitter.com/plopleo" target="_blank" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="https://www.instagram.com/plopleo/" target="_blank" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="https://github.com/Plopleo" target="_blank" class="icon fa-github"><span class="label">GitHub</span></a></li>
+									</ul>
+								</li>
+							</ul>
+						</footer>
+					</section>
+			</div>
+
+        {% block javascripts %}
+			<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+			<script src="{{ asset('assets/js/jquery.scrolly.min.js') }}"></script>
+			<script src="{{ asset('assets/js/browser.min.js') }}"></script>
+			<script src="{{ asset('assets/js/breakpoints.min.js') }}"></script>
+			<script src="{{ asset('assets/js/util.js') }}"></script>
+			<script src="{{ asset('assets/js/main.js') }}"></script>
+        {% endblock %}
+	</body>
+</html>
