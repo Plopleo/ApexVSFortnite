@@ -3896,3 +3896,24 @@ ul.games-stats {
 	color: #ffffff;
 	font-size: 15px;
 }
+
+.viewers-count {
+	font-size: 12px;
+	color: #EC1313;
+}
+
+.stream-title {
+	font-size: 10px;
+}
+
+.stream-item {
+	border-bottom: 0;
+}
+
+header p {
+	color: #E9E4E4;
+}
+
+header p a {
+	color: rgb(236, 0, 140);
+}

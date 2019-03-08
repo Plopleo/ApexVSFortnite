@@ -1,6 +1,15 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135900841-1"></script>
+		<script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-135900841-1');
+		</script>
 		<title>{% block title %}Apex VS Fortnite{% endblock %}</title>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -62,6 +71,10 @@
 						<div class="content">
 							<!-- Section -->
                             <section>
+								<header>
+                                    <h3><a href="https://www.ea.com/fr-fr/games/apex-legends" target="_blank">Apex Legends</a></h3>
+									<p>Apex Legends is a free to play battle royal from Respawn Entertainment and edited by Electronic Arts (EA). Launched on February 4, 2019 this game is cross platform (PC, PlayStation 4 and Xbox One). A game has 60 players by squad of 3.</p>
+								</header>
                                 <div class="content">
                                     <div class="gallery">
                                         <a href="https://www.twitch.tv/directory/game/Apex%20Legends" target="_blank"><img src="{{ imgApex }}" alt="apex legends cover" /></a>
@@ -72,12 +85,21 @@
 								<div class="content">
 									<ul class="feature-icons">
                                         {% for stream in apexStreams %}
-											<li class="icon fa-laptop"><a href="https://www.twitch.tv/{{ stream.user_name }}" target="_blank">{{ stream.user_name }}</a></li>
+											<li class="icon fa-laptop">
+												<a href="https://www.twitch.tv/{{ stream.user_name }}" target="_blank" class="stream-item">
+                                                    {{ stream.user_name }} <span class="viewers-count"><i class="fa fa-user"></i> {{ stream.viewer_count }}</span><br>
+													<span class="stream-title">{{ stream.title }}</span>
+												</a>
+											</li>
                                         {% endfor %}
 									</ul>
 								</div>
 							</section>
 							<section>
+                                <header>
+                                    <h3><a href="https://www.epicgames.com/fortnite/fr/buy-now/battle-royale" target="_blank">Fortnite Battle Royale</a></h3>
+                                    <p>Fortnite Battle Royale is also a free to play battle royal. Developed and edited by Epic Games this game was release on September 26, 2017. The advantage of this game is that it is available on all platforms (PC, PlayStation 4, Xbox One and Nintendo Switch) but also on smartphone (iOS and Android).</p>
+                                </header>
 								<div class="content">
 									<div class="gallery">
 										<a href="https://www.twitch.tv/directory/game/Fortnite" target="_blank"><img src="{{ imgFornite }}" alt="fortnite cover" /></a>
@@ -88,13 +110,26 @@
 								<div class="content">
 									<ul class="feature-icons">
                                         {% for stream in fortniteStreams %}
-											<li class="icon fa-laptop"><a href="https://www.twitch.tv/{{ stream.user_name }}" target="_blank">{{ stream.user_name }}</a></li>
+											<li class="icon fa-laptop">
+												<a href="https://www.twitch.tv/{{ stream.user_name }}" target="_blank" class="stream-item">
+													{{ stream.user_name }} <span class="viewers-count"><i class="fa fa-user"></i> {{ stream.viewer_count }}</span><br>
+													<span class="stream-title">{{ stream.title }}</span>
+												</a>
+											</li>
                                         {% endfor %}
 									</ul>
 								</div>
 							</section>
 						</div>
 					</section>
+
+                <!-- Section -->
+                <section>
+                    <header>
+                        <h2>Infos</h2>
+                        <p>These data are based on the first 20 streams on <a href="https://www.twitch.tv/"><i class="fa fa-twitch"></i> Twitch</a> of each game.</p>
+                    </header>
+                </section>
 
 				<!-- Section -->
 					<section>
