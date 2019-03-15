@@ -50,13 +50,10 @@
                                 </div>
                             </div>
                             <h3>Winner : {{ winner.name }}</h3>
-                            <ul class="games-stats">
-                                <li>{{ apex.name }} : <span class="apex percent">{{ apexPercent }}%</span></li>
-                                <li><span class="apex">{{ nbApexViewers }}</span> viewers</li>
-                                <li>{{ fortnite.name }} : <span class="fortnite percent">{{ 100 - apexPercent }}%</span></li>
-                                <li><span class="fortnite">{{ nbFortniteViewers }}</span> viewers</li>
-                            </ul>
-                            <p class="infos">Stats from <span class="apex">20 first twitch streams</span> on each game.</p>
+							<p class="infos">
+								{{ apex.name }} : <span class="apex percent">{{ apexPercent }}%</span> - viewers : <span class="viewers-count"><i class="fa fa-user"></i></span> <span class="apex">{{ nbApexViewers }}</span><br>
+								{{ fortnite.name }} : <span class="fortnite percent">{{ 100 - apexPercent }}%</span> - viewers : <span class="viewers-count"><i class="fa fa-user"></i></span> <span class="fortnite">{{ nbFortniteViewers }}</span><br>
+							</p>
 						</header>
 						<div class="content">
 							<span class="image fill" data-position="center"><img src="{% if imgGameWinner is not null %}{{ imgGameWinner }}{% else %}{{ asset('images/test.jpg') }}{% endif %}" alt="" /></span>
